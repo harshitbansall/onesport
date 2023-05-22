@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block body %}
+{% load static %} {% static '' as baseUrl %}
+
+<body style="background-size: cover; background-repeat:repeat;">
+<div style="padding-top:2rem;background:transparent;background: rgba(0, 0, 0, 0.8);
+margin:auto;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.50);margin:2rem;border-radius: 20px; ">
+  <center><h1 id="sportHeading" style="font-family: Nyata FTR;color:white;"></h1></center>
+
+
+  <div class="row row-cols-1 row-cols-md-4 g-4" style="margin-left:1rem;margin-right:1rem;">
+    {% for venue in all_venues %}
+    <div class="col">
+      <div class="card" style="background:transparent">
+        <img src="{{ baseUrl }}images/venues/{{venue.id}}/1.jpg" class="card-img-top" style="height:200px;"/>
+        <div class="card-body">
+          <h5 class="card-title" style="color:white;">{{venue.name}}</h5>
+          <p class="card-text" style="color:white;">
+            {{venue.address}}<br />
+            {{venue.contact_number}}
+          </p>
+          <button onclick="bookSlot('{{venue.name}}');" type="button" class="btn btn-success">Book Slot</button>
+          <a href="{{venue.google_map_id}}" style="color:white;"><button type="button" class="btn btn-dark">Open in Maps</button></a>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+</div>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const sport = urlParams.get("sport");
+  document.getElementById("sportHeading").innerHTML = sport;
+  document.body.style.backgroundImage = "url('{{ baseUrl }}images/sports/" + sport + "/1.jpg')";
+
+  function bookSlot(venue){
+    window.location.href = "/book?venue=" + venue + "&sport=" + sport;
+  }
+</script>
+{% endblock body %}

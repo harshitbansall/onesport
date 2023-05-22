@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block body %}
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid white;
+    color:white;
+    text-align: center;
+  }
+</style>
+<body style="background: black">
+{% comment %} <h1 id="sportHeading"></h1>
+<h1 id="venueHeading"></h1> {% endcomment %}
+
+<table style="width: 40%">
+  <tr>
+    <th></th>
+    {% for date in next4dates %}
+    <th>{{date|date:"d M"}}</th>
+    {% endfor %}
+  </tr>
+
+  {% for slot in timeSlots %}
+  <tr>
+    <th>{{slot}}</th>
+    
+    <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-1" autocomplete="off" style="width:100%;">
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-1" style="width:100%;">₹ 1000</label></th>
+    <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-2" autocomplete="off" style="width:100%;">
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-2" style="width:100%;">₹ 1000</label></th>
+    <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-3" autocomplete="off" style="width:100%;">
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-3" style="width:100%;">₹ 1000</label></th>
+    <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-4" autocomplete="off" style="width:100%;">
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-4" style="width:100%;">₹ 1000</label></th>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const sport = urlParams.get("sport");
+  const venue = urlParams.get("venue");
+  document.getElementById("sportHeading").innerHTML = sport;
+  document.getElementById("venueHeading").innerHTML = venue;
+</script>
+{% endblock body %}

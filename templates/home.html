@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block body %}
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  
+  <div class="carousel-indicators">
+
+    {% for sport in all_sports %}
+    {% if forloop.counter0 == 0 %}
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{forloop.counter0}}" class="active" aria-current="true" aria-label="Slide {{forloop.counter}}"></button>
+    {% else %}
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{forloop.counter0}}" aria-label="Slide {{forloop.counter}}"></button>
+    {% endif %}
+    {% endfor %}
+    
+
+  </div>
+  <div class="carousel-inner">
+
+    {% for sport in all_sports %}
+    {% if forloop.counter0 == 0 %}
+    <div class="carousel-item active" data-bs-interval="3000">
+    {% else %}
+    <div class="carousel-item" data-bs-interval="3000">
+    {% endif %}
+    
+      <img src="{{ baseUrl }}images/sports/{{sport.name}}/1.jpg" class="d-block w-100" alt="..." style="height: 91.5%">
+      <div class="carousel-caption d-none d-md-block" style="z-index:10;">
+        <h1 style="font-family: Nyata FTR;font-size:10rem;margin-bottom:12rem;color:white;">{{sport.name}}</h1>
+
+        <button
+          onclick="window.location.href='/chooseVenue?sport={{sport.name}}'"
+          style="margin-bottom: 1rem; font-size: 2rem;font-family: Nyata FTR;"
+          type="button"
+          class="btn btn-dark"
+        >
+          Book Now
+        </button>
+
+      </div>
+    </div>
+    {% endfor %}
+
+
+  </div>
+
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev" style="margin-top:3rem;">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next" style="margin-top:3rem;">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+
+</div>
+
+{% endblock body %}

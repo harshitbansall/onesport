@@ -1,0 +1,102 @@
+div.scrollmenu {
+    background-color: transparent;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+a.scrollmenuLink {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
+
+div.scrollmenu div {
+    display: inline-block;
+
+}
+
+div.scrollmenu p {
+    display: inline-block;
+    color: #C3C6B9;
+    text-align: center;
+    padding-right: 14px;
+    text-decoration: none;
+}
+
+a.scrollmenuLink:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@font-face {
+    font-family: 'Affectionately Yours';
+    src: local('Affectionately Yours'), url('/static/fonts/Affectionately Yours.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Nyata FTR';
+    src: local('Nyata FTR'), url('/static/fonts/Nyata FTR.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Autumn in November';
+    src: local('Autumn in November'), url('/static/fonts/Autumn in November.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'California';
+    src: local('California'), url('/static/fonts/California.ttf') format('truetype');
+}
+
+a.hoverElement:hover {
+    color: red !important;
+    -webkit-transition: color 100ms linear !important;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.1);
+    /* IE 9 */
+    -webkit-transform: scale(1.1);
+    /* Safari 3-8 */
+    transform: scale(1.1);
+}
+
+
+#loaderFrame {
+    border: 12px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 12px solid #444444;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
