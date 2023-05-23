@@ -20,18 +20,18 @@
     {% endfor %}
   </tr>
 
-  {% for slot in timeSlots %}
+  {% for slot, toSlot in timeSlots %}
   <tr>
-    <th>{{slot}}</th>
+    <th>{{slot}} - {{toSlot}}</th>
     
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-1" autocomplete="off" style="width:100%;">
-<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-1" style="width:100%;">₹ 1000</label></th>
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-1" style="width:100%;">₹ {{sportPrice}}</label></th>
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-2" autocomplete="off" style="width:100%;">
-<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-2" style="width:100%;">₹ 1000</label></th>
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-2" style="width:100%;">₹ {{sportPrice}}</label></th>
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-3" autocomplete="off" style="width:100%;">
-<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-3" style="width:100%;">₹ 1000</label></th>
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-3" style="width:100%;">₹ {{sportPrice}}</label></th>
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-4" autocomplete="off" style="width:100%;">
-<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-4" style="width:100%;">₹ 1000</label></th>
+<label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-4" style="width:100%;">₹ {{sportPrice}}</label></th>
 
   </tr>
   {% endfor %}

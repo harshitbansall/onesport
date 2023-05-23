@@ -20,7 +20,10 @@
       charset="utf-8"
       async
     ></script>
-    
+    <script>
+      let accessToken = '{{request.session.access}}';
+      let redirect_url = '{{redirect_url}}';
+  </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -48,7 +51,8 @@
     }
     
   </style> {% endcomment %}
-
+  {% block bg %}
+  {% endblock bg %}
   <div id="navi">
     {% comment %} <nav class="navbar navbar-expand-lg" style="height: 4rem;background-color:transparent;
     background: rgba(0, 0, 0, 0.8);
@@ -107,15 +111,43 @@
             </li>
           </ul>
           <ul class="navbar-nav mx-3">
-            <li class="nav-item">
-              <a
-                style="font-family: Nyata FTR; font-size: 25px; color: white"
-                class="nav-link active hoverElement"
-                href="#"
-                onclick="showLogin()"
-                >Login</a
-              >
-            </li>
+            {% if request.user.is_authenticated %}
+                            <li class="nav-item dropdown">
+                                <a style="font-family:Nyata FTR;
+                                          font-size:25px;
+                                          color:white;"
+                                   class="nav-link active dropdown-toggle hoverElement"
+                                   id="navbarDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false">
+                                    {{ request.user.full_name }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="/profile">My Profile</a>
+                                    </li>
+                                    {% comment %} <li>
+                                        <a class="dropdown-item" href="/watchlist">My Watchlist</a>
+                                    </li> {% endcomment %}
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" onclick="Logout()">Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a style="font-family:Nyata FTR;
+                                          font-size:25px;
+                                          color:white;"
+                                   class="nav-link active hoverElement"
+                                   href="#"
+                                   onclick="showLogin()">Login</a>
+                            </li>
+                        {% endif %}
           </ul>
         </div>
       </div>

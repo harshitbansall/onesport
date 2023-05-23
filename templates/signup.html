@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+    Sign Up
+{% endblock title %}
+{% block bg %}
+    <body style="background-image: radial-gradient(circle, black, #f85300 , black);">
+    {% endblock bg %}
+    {% block body %}
+        <div class="column"
+             style="background-color:transparent;
+                    width:50%;
+                    margin:auto;
+                    height:83%;
+                    padding-top:6rem;">
+            <div class="card text-white"
+                 style="width : 25rem; margin :auto; background:transparent;background: rgba(0, 0, 0, 0.4);box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 20px 20px 0 rgba(0, 0, 0, 0.19); ">
+                <h2 style="font-family:Nyata FTR"
+                    class="text-center mt-3 mb-4">Sign Up</h2>
+                <form action="javascript:;" onsubmit="SignUp()">
+                    <div class="row g-3">
+                        <div class="col-sm-6" style="padding-left:3rem;">
+                            <label for="firstName" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="firstNameField" required>
+                        </div>
+                        <div class="col-sm-6" style="padding-right:3rem;">
+                            <label for="lastName" class="form-label">Last name</label>
+                            <input type="text" class="form-control" id="lastNameField" required>
+                        </div>
+                        <div class="input-group has-validation px-5">
+                            <span class="input-group-text">@</span>
+                            <input type="text"
+                                   class="form-control"
+                                   id="usernameField"
+                                   placeholder="Username"
+                                   required>
+                        </div>
+                        <div class="input-group px-5">
+                            <input id="passwordField"
+                                   type="password"
+                                   autocomplete="current-password"
+                                   class="form-control"
+                                   placeholder="Password"
+                                   required>
+                        </div>
+                        <div class="col-12 px-5 mb-4">
+                            <label for="email" class="form-label">
+                                Email <span class="text-muted">(Optional)</span>
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="emailField"
+                                   placeholder="you@example.com">
+                        </div>
+                    </div>
+                    <div class="mx-4 mb-2">
+                        <button type="submit" class="w-100 btn btn-warning">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+            <div id="loaderFrame" style="display:none;margin:50px auto;"></div>
+        </div>
+    {% endblock body %}

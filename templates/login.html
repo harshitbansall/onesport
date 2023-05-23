@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    Popcorn Times | Login
+{% endblock title %}
+{% block bg %}
+    <body style="background:black;">
+    {% endblock bg %}
+    {% block body %}
+        <div class="column"
+             style="background-color:transparent;
+                    width:50%;
+                    margin:auto;
+                    height:83%;
+                    padding-top:9rem;">
+            <div class="card text-white"
+                 style="width : 20rem; margin : auto; background:#4B4544;">
+                <h2 style="font-family:Nyata FTR;"
+                    class="text-center mt-3 mb-4">Login</h2>
+                <div class="input-group mb-3 px-3">
+                    <span class="input-group-text">@</span>
+                    <input id="usernameInputBox"
+                           type="text"
+                           autocomplete="username"
+                           class="form-control"
+                           placeholder="Username"
+                           aria-label="Username"/>
+                </div>
+                <div class="input-group mb-5 px-3">
+                    <input id="passwordInputBox"
+                           onkeydown="EnterEventLogin()"
+                           type="password"
+                           autocomplete="current-password"
+                           class="form-control"
+                           placeholder="Password"
+                           aria-label="Password"/>
+                </div>
+                <button onclick="Login()" type="button" class="btn btn-danger mb-2 mx-3">Login</button>
+                <button onclick="GoToSignUp()"
+                        type="button"
+                        class="btn btn-warning mx-3 mb-3">Sign Up</button>
+            </div>
+            <div id="loaderFrame" style="display:none;margin:50px auto;"></div>
+        </div>
+    {% endblock body %}

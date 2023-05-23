@@ -7,6 +7,7 @@ class Sport(models.Model):
     # type = models.CharField(max_length=100)
     # content = models.CharField(max_length=100)
     # poster_path = models.CharField(max_length=100)
+    price = models.CharField(max_length=100, blank=True, null=True)
     added_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
