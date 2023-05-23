@@ -8,11 +8,10 @@
     text-align: center;
   }
 </style>
-<body style="background: black">
-{% comment %} <h1 id="sportHeading"></h1>
-<h1 id="venueHeading"></h1> {% endcomment %}
-
-<table style="width: 40%">
+<body style="background: black;overflow:hidden;">
+<div style="width:100%;">
+  <center>
+<table style="width:50%;">
   <tr>
     <th></th>
     {% for date in next4dates %}
@@ -23,7 +22,6 @@
   {% for slot, toSlot in timeSlots %}
   <tr>
     <th>{{slot}} - {{toSlot}}</th>
-    
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-1" autocomplete="off" style="width:100%;">
 <label class="btn btn-outline-secondary" for="btn-check-2-outlined-{{forloop.counter0}}-1" style="width:100%;">₹ {{sportPrice}}</label></th>
     <th><input type="checkbox" class="btn-check" id="btn-check-2-outlined-{{forloop.counter0}}-2" autocomplete="off" style="width:100%;">
@@ -36,12 +34,12 @@
   </tr>
   {% endfor %}
 </table>
-
+<button type="button" class="btn btn-success" style="margin-top:1rem;font-size:2rem;">Book Now</button>
+</center>
+</div>
 <script>
   const urlParams = new URLSearchParams(window.location.search);
   const sport = urlParams.get("sport");
   const venue = urlParams.get("venue");
-  document.getElementById("sportHeading").innerHTML = sport;
-  document.getElementById("venueHeading").innerHTML = venue;
 </script>
 {% endblock body %}

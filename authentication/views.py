@@ -64,8 +64,11 @@ class UpdateProfile(APIView):
 
 class authLogout(APIView):
     def post(self, request):
-        del request.session['access']
-        del request.session['refresh']
+        try:
+            del request.session['access']
+            del request.session['refresh']
+        except:
+            pass
         logout(request)
         return HttpResponse("You have been Logged Out.")
 
